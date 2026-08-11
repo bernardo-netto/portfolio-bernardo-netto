@@ -1,0 +1,135 @@
+/* ── 2. RODAPÉ MINIMALISTA E PROFISSIONAL ── */
+
+.site-footer {
+  width: 100%;
+  margin-top: 50px;
+  border-top: 1px solid var(--cor-borda);
+  padding: 32px 0;
+}
+
+/* Container interno centralizado */
+.site-footer .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyright-text {
+  font-family: var(--fonte-mono);
+  font-size: 0.82rem;
+  color: var(--cor-texto-suave);
+}
+
+/* LINK VOLTAR AO TOPO ELEGANTE (TEXTO COM SUBLINHADO ANIMADO DESLIZANTE) */
+.link-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.link-back-to-top i {
+  font-size: 0.8rem;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+/* Linha do sublinhado (Começa invisível com scaleX(0)) */
+.link-back-to-top::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--cor-laranja-print);
+  transform: scaleX(0);
+  transform-origin: bottom right; /* Ao sair, recolhe para a direita */
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ESTADOS DE HOVER */
+.link-back-to-top:hover {
+  color: var(--cor-texto-principal);
+}
+
+.link-back-to-top:hover i {
+  transform: translate(3px, -3px); /* Move levemente na diagonal (cima/direita) */
+  
+}
+
+.link-back-to-top:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left; /* Ao entrar, expande a partir da esquerda */
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .contact-card-container {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 36px;
+  }
+
+  .site-footer {
+    padding: 24px 0;
+  }
+
+  .site-footer .container {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 20px;
+  }
+}
+
+
+
+
+/* ── RESPONSIVO: RODAPÉ (FOOTER) ── */
+@media (min-width: 992px) {
+  .footer-container {
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+  }
+
+  .footer-perfil {
+    grid-column: auto;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .footer-centro {
+    grid-column: auto;
+    text-align: center;
+  }
+
+  .footer-redes {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 991px) {
+  .footer-container {
+    max-width: 520px;
+    gap: 22px;
+  }
+
+  .footer-perfil {
+    flex-direction: row;
+    text-align: left;
+    gap: 14px;
+  }
+}
+

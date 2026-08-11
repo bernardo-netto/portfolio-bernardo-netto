@@ -1,0 +1,136 @@
+/* ==========================================================================
+   SEÇÃO ESTUDOS / FORMAÇÃO ACADÊMICA
+   ========================================================================== */
+.estudos-secao {
+  padding: 120px 0;
+  background-color: var(--cor-fundo-secundario);
+  position: relative;
+}
+
+.estudos-secao .container-global {
+  max-width: 1280px;
+}
+
+.estudos-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px; /* Limita a largura de leitura para melhor UX */
+}
+
+.estudos-cronograma {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Linha do Tempo (Lista Ordenada Semântica) */
+.estudos-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  position: relative;
+  padding-left: 28px;
+  border-left: 2px solid var(--cor-borda);
+  list-style: none; /* Remove numeração padrão do HTML */
+  margin: 0;
+}
+
+.estudos-item {
+  position: relative;
+}
+
+/* Indicador Circular na Borda */
+.estudos-item::before {
+  content: "";
+  position: absolute;
+  left: -36.5px; /* Alinhamento exato sobre a borda de 2px e padding de 28px */
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--cor-fundo-secundario);
+  border: 2px solid var(--cor-laranja-print);
+  z-index: 2;
+  transition: transform var(--transicao-suave);
+}
+
+/* Item Atualmente em Andamento */
+.estudos-item.atual::before {
+  background-color: var(--cor-laranja-print);
+  box-shadow: 0 0 10px var(--cor-laranja-print);
+  animation: pulsarFormacaoAtual 2s infinite ease-in-out;
+}
+
+@keyframes pulsarFormacaoAtual {
+  0% {
+    box-shadow: 0 0 0 0 rgba(252, 101, 73, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(252, 101, 73, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(252, 101, 73, 0);
+  }
+}
+
+.estudos-periodo {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-laranja-print);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.estudos-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  color: var(--cor-texto-principal);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.estudos-instituicao {
+  font-family: var(--fonte-corpo);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 10px;
+}
+
+.estudos-descricao {
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLETS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .estudos-secao {
+    padding: 80px 0;
+  }
+
+  .estudos-timeline {
+    padding-left: 20px;
+  }
+
+  .estudos-item::before {
+    left: -28.5px;
+    width: 13px;
+    height: 13px;
+  }
+
+  .estudos-titulo {
+    font-size: 1.15rem;
+  }
+
+  .estudos-descricao {
+    font-size: 0.90rem;
+  }
+}

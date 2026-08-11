@@ -1,0 +1,283 @@
+/* ==========================================================================
+           SEÇÃO SOBRE MIM (ESTILO EDITORIAL PREMIUM)
+           ========================================================== */
+      .sobre-secao {
+        padding: 100px 0;
+        background-color: var(--cor-fundo);
+        position: relative;
+      }
+
+      .sobre-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .sobre-topo-linha {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--cor-borda);
+        padding-bottom: 12px;
+        margin-bottom: 48px;
+      }
+      .sobre-topo-linha .secao-num {
+        font-family: var(--fonte-mono);
+        font-size: 0.8rem;
+        color: var(--cor-laranja-print);
+        letter-spacing: 1px;
+      }
+      .sobre-topo-linha .secao-nav-info {
+        font-family: var(--fonte-mono);
+        font-size: 0.75rem;
+        color: var(--cor-texto-suave);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .sobre-badge-linha {
+        font-family: var(--fonte-mono);
+        font-size: 0.7rem;
+        color: var(--cor-texto-suave);
+        letter-spacing: 3px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      .sobre-badge-linha::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 1px;
+        background-color: var(--cor-laranja-print);
+      }
+
+      .sobre-titulo-principal {
+        font-family: var(--fonte-titulo);
+        font-size: clamp(2.2rem, 4vw, 3rem);
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--cor-texto-principal);
+        letter-spacing: -1.5px;
+        margin-bottom: 24px;
+      }
+      .sobre-titulo-principal .serif-italic-destaque {
+        font-style: italic;
+        font-weight: 400;
+        font-family: var(--fonte-serifa);
+        color: var(--cor-laranja-print);
+      }
+
+      .sobre-paragrafo {
+        font-family: var(--fonte-corpo);
+        font-size: 1rem;
+        line-height: 1.65;
+        color: var(--cor-texto-secundario);
+        margin-bottom: 24px;
+        max-width: 580px;
+      }
+      .sobre-paragrafo strong {
+        color: var(--cor-texto-principal);
+        font-weight: 600;
+      }
+
+      .sobre-coluna-direita {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 50px; /* ajuste fino de alinhamento — calibre conforme o resultado real */
+      }
+
+      .sobre-painel-info {
+        background-color: var(--cor-card);
+        border: 1px solid var(--cor-borda);
+        border-radius: 16px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        box-shadow: var(--sombra-premium);
+      }
+
+      .sobre-painel-linhas {
+        display: flex;
+        flex-direction: column;
+      }
+      .sobre-painel-linha {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--cor-borda);
+      }
+      .sobre-painel-linha:last-child {
+        border-bottom: none;
+      }
+      
+.sobre-painel-label {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  color: var(--cor-texto-secundario); /* era --cor-texto-suave */
+  text-transform: uppercase;
+}
+
+      .sobre-painel-valor {
+        font-family: var(--fonte-corpo);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--cor-texto-principal);
+        text-align: right;
+      }
+      .sobre-painel-link {
+        color: var(--cor-laranja-print);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .sobre-painel-link:hover {
+        color: var(--cor-laranja-hover);
+        text-decoration: underline;
+      }
+
+      .sobre-painel-botoes {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+      }
+
+      /* Unifique as duas declarações em uma só: */
+.sobre-btn-principal {
+  flex: 1;
+  text-align: center;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--cor-laranja-print);
+  color: #ffffff;
+  border: 1px solid var(--cor-laranja-print);
+  transition:
+    background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+      .sobre-btn-principal:hover {
+        background-color: var(--cor-laranja-hover);
+        border-color: var(--cor-laranja-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(252, 101, 73, 0.3);
+      }
+
+      .linha-contadores-sobre {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-top: 56px;
+        padding-top: 40px;
+        border-top: 1px solid var(--cor-borda);
+      }
+
+      .caixa-contador-sobre {
+        padding: 32px 24px;
+        background-color: var(--cor-card);
+        border: 1px solid var(--cor-borda);
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: var(--sombra-premium);
+      }
+      .caixa-contador-sobre:hover {
+        transform: translateY(-4px);
+        border-color: var(--cor-laranja-print);
+        background-color: rgba(252, 101, 73, 0.02);
+      }
+      html[data-tema="claro"] .caixa-contador-sobre:hover {
+        background-color: rgba(252, 101, 73, 0.01);
+      }
+
+      .numero-contador-sobre {
+        font-family: var(--fonte-titulo);
+        font-size: clamp(2rem, 3.2vw, 2.6rem);
+        font-weight: 800;
+        color: var(--cor-texto-principal);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .numero-contador-sobre .sinal-laranja {
+        color: var(--cor-laranja-print);
+      }
+
+      .rotulo-contador-sobre {
+        font-family: var(--fonte-mono);
+        font-size: 0.68rem;
+        color: var(--cor-texto-suave);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+
+
+
+
+      .icone-whatsapp-btn {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+
+
+
+
+
+/* ── RESPONSIVO: SOBRE ── */
+@media (max-width: 1100px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .linha-contadores-sobre {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-secao {
+    padding: 80px 0;
+  }
+
+  .sobre-titulo-principal {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+
+  .sobre-painel-botoes {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 576px) {
+  .linha-contadores-sobre {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sobre-painel-botoes {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sobre-btn-principal,
+  .sobre-btn-secundario {
+    width: 100%;
+  }
+}

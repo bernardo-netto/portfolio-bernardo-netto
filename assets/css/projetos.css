@@ -1,0 +1,738 @@
+/* STREAMING_CHUNK:Configuring root section layout and project grid... /
+/ ==========================================================================
+SEÇÃO PROJETOS & MODAL (DESIGN SYSTEM DE ALTA FIDELIDADE)
+========================================================================== */
+
+/* Container Principal da Seção de Projetos */
+.projetos-secao {
+padding: 120px 0;
+background-color: var(--cor-fundo, #0d0807);
+border-top: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+border-bottom: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+}
+
+/* Grade de Exibição dos Cards de Projetos */
+.grade-proj {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+margin-top: 48px;
+}
+
+/* STREAMING_CHUNK:Styling project cards and gradient border effects... /
+/ Card de Projeto Individual */
+.card-proj {
+will-change: transform;
+background: rgba(13, 8, 7, 0.95);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+border-radius: 16px;
+overflow: hidden;
+position: relative;
+transition:
+border-color 0.6s ease,
+transform 0.5s ease,
+box-shadow 0.6s ease;
+display: flex;
+flex-direction: column;
+box-shadow: var(--sombra-premium, 0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Borda com Gradiente Glow Suave no Hover */
+.card-proj::after {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 16px;
+padding: 1px;
+background: linear-gradient(
+135deg,
+rgba(252, 101, 73, 0.55) 0%,
+rgba(255, 255, 255, 0.45) 100%
+);
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+opacity: 0;
+transition: opacity 0.6s ease;
+pointer-events: none;
+z-index: 3;
+}
+
+/* Suporte ao Tema Claro para os Cards */
+html[data-tema="claro"] .card-proj {
+background: #ffffff;
+}
+
+html[data-tema="claro"] .card-proj::after {
+background: linear-gradient(
+135deg,
+rgba(252, 101, 73, 0.5) 0%,
+rgba(13, 8, 7, 0.35) 100%
+);
+}
+
+.card-proj:hover {
+border-color: transparent;
+transform: translateY(-5px);
+box-shadow:
+var(--sombra-premium, 0 10px 30px rgba(0, 0, 0, 0.5)),
+0 0 30px rgba(252, 101, 73, 0.08);
+}
+
+.card-proj:hover::after {
+opacity: 1;
+}
+
+/* STREAMING_CHUNK:Formatting browser mockup frame and viewport... /
+/ Simulação de Moldura de Browser */
+.browser {
+background: #130d0c;
+border-bottom: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+position: relative;
+overflow: hidden;
+}
+
+.br-barra {
+background: rgba(255, 255, 255, 0.02);
+border-bottom: 1px solid rgba(252, 101, 73, 0.08);
+padding: 10px 16px;
+display: flex;
+align-items: center;
+gap: 6px;
+position: relative;
+z-index: 2;
+}
+
+/* Botões do Browser (Vermelho, Amarelo, Verde/Cinza) */
+.brd {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+display: inline-block;
+}
+.bdr {
+background: #ff5f57;
+}
+.bdy {
+background: #febc2e;
+}
+.bdg {
+background: #6b605e;
+}
+
+.br-url {
+flex: 1;
+margin-left: 10px;
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+border-radius: 6px;
+padding: 4px 12px;
+font-family: var(--fonte-mono, monospace);
+font-size: 0.65rem;
+color: var(--cor-texto-suave, #a1a1aa);
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+/* Viewport da Imagem de Preview do Projeto */
+.proj-vp {
+height: 240px;
+overflow: hidden;
+position: relative;
+}
+
+.proj-scr-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+/* STREAMING_CHUNK:Styling card content tags and typography... /
+/ Conteúdo Interno do Card */
+.proj-corpo {
+padding: 24px;
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+}
+
+.proj-tags {
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+margin-bottom: 16px;
+}
+
+.proj-tag {
+font-family: var(--fonte-mono, monospace);
+font-size: 0.65rem;
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+border-radius: 6px;
+padding: 4px 10px;
+color: var(--cor-texto-suave, #a1a1aa);
+letter-spacing: 0.04em;
+transition:
+color 0.35s ease,
+background-color 0.35s ease,
+border-color 0.35s ease,
+transform 0.35s ease;
+}
+
+.proj-tag:hover {
+background: rgba(252, 101, 73, 0.08);
+border-color: rgba(252, 101, 73, 0.35);
+color: var(--cor-laranja-print, #fc6549);
+transform: translateY(-2px);
+}
+
+.proj-tit {
+font-family: var(--fonte-titulo, sans-serif);
+font-size: 1.4rem;
+font-weight: 700;
+color: var(--cor-texto-principal, #ffffff);
+margin-bottom: 8px;
+}
+
+.proj-desc {
+font-size: 0.85rem;
+color: var(--cor-texto-secundario, #d4d4d8);
+line-height: 1.6;
+margin-bottom: 24px;
+}
+
+/* STREAMING_CHUNK:Defining project card action buttons... /
+/ Botões de Ação dos Cards */
+.proj-acoes {
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+margin-top: auto;
+}
+
+.proj-acoes-grupo {
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.bp {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+padding: 10px 16px;
+border-radius: 8px;
+font-size: 0.75rem;
+font-weight: 700;
+transition: var(--transicao-suave, all 0.3s ease);
+border: none;
+cursor: pointer;
+text-decoration: none;
+}
+
+.bp svg {
+width: 14px;
+height: 14px;
+flex-shrink: 0;
+}
+
+.bp-online {
+background: var(--cor-laranja-print, #fc6549);
+color: #ffffff;
+box-shadow: 0 2px 10px rgba(252, 101, 73, 0.2);
+}
+
+.bp-online:hover {
+background-color: var(--cor-laranja-hover, #e05338);
+transform: translateY(-1px);
+}
+
+.bp-github {
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+color: var(--cor-texto-principal, #ffffff);
+}
+
+.bp-github:hover {
+border-color: var(--cor-laranja-print, #fc6549);
+background-color: rgba(252, 101, 73, 0.03);
+}
+
+html[data-tema="claro"] .bp-github {
+background: rgba(13, 8, 7, 0.03);
+color: #130d0c;
+}
+
+.bp-det {
+background: rgba(252, 101, 73, 0.05);
+border: 1px solid rgba(252, 101, 73, 0.15);
+color: var(--cor-laranja-print, #fc6549);
+}
+
+.bp-det:hover {
+background: rgba(252, 101, 73, 0.12);
+}
+
+/* STREAMING_CHUNK:Configuring expand button and secondary projects state... /
+/ Projetos Secundários Ocultos / Revelados */
+.card-proj.projeto-card-secundario {
+display: none;
+opacity: 0;
+transform: translateY(20px);
+transition:
+opacity 0.5s ease,
+transform 0.5s ease;
+}
+
+.card-proj.projeto-card-secundario.revelado {
+display: flex;
+opacity: 1;
+transform: translateY(0);
+}
+
+.container-ver-mais {
+display: flex;
+justify-content: center;
+margin-top: 56px;
+}
+
+.btn-ver-mais-projetos {
+background-color: transparent;
+border: 1.5px solid var(--cor-laranja-print, #fc6549);
+color: var(--cor-laranja-print, #fc6549);
+font-family: var(--fonte-corpo, sans-serif);
+font-size: 0.95rem;
+font-weight: 700;
+padding: 14px 36px;
+border-radius: 100px;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: var(--transicao-suave, all 0.3s ease);
+}
+
+.btn-ver-mais-projetos:hover {
+background-color: var(--cor-laranja-print, #fc6549);
+color: #ffffff;
+}
+
+/* STREAMING_CHUNK:Building modal backdrop overlay and dialog container... /
+/ ==========================================================================
+ESTILOS DO MODAL & CARROSSEL README
+========================================================================== */
+
+#overlay-modal {
+position: fixed;
+inset: 0;
+z-index: 1000;
+background: rgba(6, 5, 4, 0.85);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+display: none;
+align-items: center;
+justify-content: center;
+padding: 24px;
+}
+
+#overlay-modal.aberto {
+display: flex;
+}
+
+.modal-cx {
+background: rgba(19, 14, 12, 0.95);
+border: 1px solid rgba(252, 101, 73, 0.2);
+border-radius: 20px;
+width: 100%;
+max-width: 720px;
+max-height: 90vh;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+box-shadow: var(--sombra-premium, 0 10px 30px rgba(0, 0, 0, 0.5));
+animation: modalEntrada 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-tema="claro"] .modal-cx {
+background: #ffffff;
+}
+
+@keyframes modalEntrada {
+from {
+opacity: 0;
+transform: scale(0.96) translateY(12px);
+}
+to {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+/* STREAMING_CHUNK:Styling modal header and close controls... /
+/ Cabeçalho do Modal */
+.modal-topo {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 28px;
+border-bottom: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+flex-shrink: 0;
+}
+
+.modal-topo-cab {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.modal-tit {
+font-family: var(--fonte-serifa, serif);
+font-size: 1.35rem;
+color: var(--cor-texto-principal, #ffffff);
+}
+
+.btn-fchr {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.8rem;
+color: var(--cor-texto-suave, #a1a1aa);
+cursor: pointer;
+transition: var(--transicao-suave, all 0.3s ease);
+}
+
+.btn-fchr:hover {
+background: rgba(252, 101, 73, 0.1);
+border-color: rgba(252, 101, 73, 0.2);
+color: var(--cor-laranja-print, #fc6549);
+}
+
+.modal-topo-cab #ponto-fechar-modal {
+cursor: pointer;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-topo-cab #ponto-fechar-modal:hover,
+.modal-topo-cab #ponto-fechar-modal:focus-visible {
+transform: scale(1.15);
+box-shadow: 0 0 0 3px rgba(255, 95, 87, 0.25);
+outline: none;
+}
+
+/* STREAMING_CHUNK:Customizing modal scrollable body and scrollbars... /
+/ Corpo de Conteúdo Rolável */
+.modal-corpo {
+padding: 28px;
+overflow-y: auto;
+flex-grow: 1;
+scrollbar-width: thin;
+scrollbar-color: rgba(252, 101, 73, 0.3) rgba(255, 255, 255, 0.02);
+}
+
+.modal-corpo::-webkit-scrollbar {
+width: 8px;
+}
+
+.modal-corpo::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-corpo::-webkit-scrollbar-thumb {
+background-color: rgba(252, 101, 73, 0.3);
+border-radius: 100px;
+}
+
+.modal-corpo::-webkit-scrollbar-thumb:hover {
+background-color: rgba(252, 101, 73, 0.55);
+}
+
+/* STREAMING_CHUNK:Configuring modal carousel track and image slides... /
+/ Container e Trilho do Carrossel */
+.modal-carrossel-container {
+position: relative;
+width: 100%;
+margin-bottom: 12px;
+border-radius: 12px;
+overflow: hidden;
+background-color: var(--cor-fundo-card, #130d0c);
+border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+}
+
+.modal-carrossel-janela {
+width: 100%;
+overflow: hidden;
+border-radius: 12px;
+aspect-ratio: 16 / 9;
+}
+
+.modal-carrossel-trilho {
+display: flex;
+width: 100%;
+height: 100%;
+transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.modal-carrossel-slide {
+flex: 0 0 100%;
+min-width: 100%;
+max-width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #0d0807;
+}
+
+.modal-carrossel-slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+/* STREAMING_CHUNK:Styling carousel navigation arrows and indicator bar... /
+/ Setas de Navegação (Esquerda / Direita) */
+.modal-carrossel-seta {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 10;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: rgba(19, 13, 12, 0.85);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #ffffff;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.2s ease;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-carrossel-seta:hover {
+background: var(--cor-laranja-print, #fc6549);
+border-color: var(--cor-laranja-print, #fc6549);
+color: #ffffff;
+transform: translateY(-50%) scale(1.08);
+}
+
+.modal-carrossel-seta.seta-esquerda {
+left: 14px;
+}
+
+.modal-carrossel-seta.seta-direita {
+right: 14px;
+}
+
+/* Indicadores do Carrossel */
+.modal-carrossel-indicadores {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+margin-top: 14px;
+margin-bottom: 28px;
+}
+
+.modal-carrossel-indicador {
+width: 28px;
+height: 4px;
+border-radius: 2px;
+background-color: rgba(255, 255, 255, 0.2);
+border: none;
+padding: 0;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.modal-carrossel-indicador.ativo {
+width: 42px;
+background-color: var(--cor-laranja-print, #fc6549);
+box-shadow: 0 0 8px rgba(252, 101, 73, 0.6);
+}
+
+/* STREAMING_CHUNK:Formatting tags and README markdown layout blocks... /
+/ Container de Tags do Modal */
+.modal-tags-container {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 32px;
+}
+
+/* Seções do README */
+.rm-sec {
+margin-bottom: 28px;
+}
+
+.rm-h3 {
+font-family: var(--fonte-titulo, sans-serif);
+font-size: 1.1rem;
+font-weight: 600;
+color: var(--cor-texto-principal, #ffffff);
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 12px;
+}
+
+.rm-h3 svg {
+color: var(--cor-laranja-print, #fc6549);
+}
+
+.rm-p {
+font-family: var(--fonte-corpo, sans-serif);
+font-size: 0.95rem;
+line-height: 1.6;
+color: var(--cor-texto-suave, #a1a1aa);
+margin-bottom: 12px;
+}
+
+.rm-p strong {
+color: var(--cor-texto-principal, #ffffff);
+}
+
+/* Lista de Funcionalidades */
+.rm-feat {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 10px;
+font-family: var(--fonte-corpo, sans-serif);
+font-size: 0.92rem;
+line-height: 1.5;
+color: var(--cor-texto-secundario, #d4d4d8);
+}
+
+.rm-chk {
+color: var(--cor-laranja-print, #fc6549);
+font-weight: bold;
+}
+
+/* Box de Soluções Arquiteturais */
+.modal-solucoes-box {
+background: rgba(252, 101, 73, 0.05);
+border: 1px solid rgba(252, 101, 73, 0.2);
+border-radius: 12px;
+padding: 20px;
+margin-bottom: 32px;
+}
+
+.rm-h3-solucoes {
+border: none;
+padding: 0;
+margin-bottom: 8px;
+}
+
+/* STREAMING_CHUNK:Styling action footer and responsive media queries... /
+/ Rodapé de Ações do Modal */
+.modal-acoes {
+display: flex;
+gap: 16px;
+margin-top: 16px;
+padding-top: 20px;
+border-top: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.1));
+}
+
+.btn-lg {
+flex: 1;
+font-family: var(--fonte-corpo, sans-serif);
+font-size: 0.95rem;
+font-weight: 700;
+text-align: center;
+padding: 14px;
+border-radius: 10px;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+}
+
+/* ==========================================================================
+RESPONSIVIDADE (TABLETS E SMARTPHONES)
+========================================================================== */
+@media (max-width: 768px) {
+.projetos-secao {
+padding: 80px 0;
+}
+
+.grade-proj {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+
+.proj-vp {
+height: 200px;
+}
+
+.proj-corpo {
+padding: 18px;
+}
+
+.proj-tit {
+font-size: 1.25rem;
+}
+
+.modal-cx {
+max-height: 95vh;
+}
+
+.modal-corpo {
+padding: 18px;
+}
+
+.modal-acoes {
+flex-direction: column;
+gap: 10px;
+}
+}
+
+
+
+
+
+/* ── RESPONSIVO: PROJETOS ── */
+@media (max-width: 1100px) {
+  .grade-proj {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .projetos-secao {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .proj-acoes {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .proj-acoes-grupo {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .bp {
+    width: 100%;
+  }
+}

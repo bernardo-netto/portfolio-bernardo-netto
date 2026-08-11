@@ -1,0 +1,26 @@
+
+/* ==========================================================================
+   ARQUIVO MAESTRO - main.css
+   Centraliza e gerencia a importação de todos os estilos do portfólio.
+   ========================================================================== */
+
+/* --- 1. CONFIGURAÇÕES GLOBAIS E TOKENS (Devem carregar primeiro) --- */
+@import url('variaveis.css');
+@import url('base.css');
+
+
+/* --- 2. LAYOUT COMPARTILHADO --- */
+@import url('header.css');
+
+/* --- 3. SEÇÕES DO SITE (Na ordem em que aparecem na tela) --- */
+@import url('inicio.css');
+@import url('sobre.css');
+@import url('estudos.css');
+@import url('projetos.css');
+@import url('servicos.css');
+@import url('processo.css');
+@import url('contato.css');
+@import url('faq.css');
+@import url('footer.css');
+
+

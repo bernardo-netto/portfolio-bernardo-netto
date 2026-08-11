@@ -1,0 +1,535 @@
+/* ==========================================================================
+   HEADER & NAVEGAÇÃO PREMIUM (FLEXÍVEL E ADAPTÁVEL)
+   ========================================================================== */
+#cabecalho-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  padding: 24px 24px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  transition: padding var(--transicao-suave);
+  /* Mantém o containing block para o menu mobile fixed,
+     agora de forma EXPLÍCITA e documentada em vez de acidental */
+  transform: translateZ(0);
+}
+
+.container-cabecalho-maximo {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(20, 14, 12, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--cor-borda);
+  border-radius: 100px;
+  position: relative;
+  transition:
+    max-width var(--transicao-suave),
+    background-color var(--transicao-suave),
+    border-color var(--transicao-suave),
+    border-radius var(--transicao-suave),
+    padding var(--transicao-suave);
+
+
+  overflow: visible !important;
+}
+
+html[data-tema="claro"] .container-cabecalho-maximo {
+  background-color: rgba(244, 239, 234, 0.75);
+}
+
+/* ── BRANDING / LOGO ── */
+.logotipo-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-simbolo {
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(252, 101, 73, 0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transicao-suave), background-color var(--transicao-suave), border-color var(--transicao-suave), box-shadow var(--transicao-suave);
+}
+
+.logo-simbolo span {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cor-texto-principal);
+}
+
+.logotipo-marca:hover .logo-simbolo {
+  transform: scale(1.1) rotate(-6deg);
+  background-color: var(--cor-laranja-print);
+  border-color: var(--cor-laranja-print);
+  box-shadow: 0 0 20px rgba(252, 101, 73, 0.4);
+}
+
+.logotipo-marca:hover .logo-simbolo span {
+  color: #0d0807;
+}
+
+.logo-textos {
+  display: flex;
+  flex-direction: column;
+}
+
+.marca-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cor-texto-principal);
+  letter-spacing: 1px;
+}
+
+.marca-nome .destaque {
+  color: var(--cor-laranja-print);
+}
+
+.marca-subtitulo {
+  font-family: var(--fonte-corpo);
+  font-size: clamp(0.68rem, 0.6rem + 0.15vw, 0.72rem);
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  letter-spacing: 1.5px;
+}
+
+/* ── NAVEGAÇÃO DESKTOP ── */
+.bloco-navegacao-desktop {
+  display: flex;
+  align-items: center;
+}
+
+.menu-navegacao {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--fonte-corpo);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 100px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.ativo {
+  color: var(--cor-texto-principal);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+html[data-tema="claro"] .nav-link:hover,
+html[data-tema="claro"] .nav-link.ativo {
+  background-color: rgba(13, 8, 7, 0.05);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background-color: var(--cor-laranja-print);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menu-divisor {
+  width: 1px;
+  height: 20px;
+  background-color: var(--cor-borda);
+  margin: 0 16px;
+}
+
+.botao-alternar-tema {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-suave);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.botao-alternar-tema:hover {
+  color: var(--cor-texto-principal);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+html[data-tema="claro"] .botao-alternar-tema:hover {
+  background-color: rgba(13, 8, 7, 0.05);
+}
+
+.icone-sol,
+.icone-lua {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
+}
+
+.botao-alternar-tema:hover .icone-sol,
+.botao-alternar-tema:hover .icone-lua {
+  transform: rotate(25deg) scale(1.1);
+  color: var(--cor-laranja-print);
+}
+
+.icone-sol {
+  display: none;
+}
+
+.icone-lua {
+  display: block;
+}
+
+html[data-tema="claro"] .icone-sol {
+  display: block;
+}
+
+html[data-tema="claro"] .icone-lua {
+  display: none;
+}
+
+.botao-conversar {
+  background-color: var(--cor-laranja-print);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transicao-suave);
+}
+
+.botao-conversar i {
+  font-size: 1rem;
+}
+
+.botao-conversar:hover {
+  background-color: var(--cor-laranja-hover);
+  transform: translateY(-2px);
+}
+
+/* ── CABEÇALHO AO ROLAR ── */
+#cabecalho-principal.rolou {
+  padding: 0;
+  background-color: rgba(13, 8, 7, 0.95);
+  border-bottom: 1px solid rgba(252, 101, 73, 0.15);
+}
+
+html[data-tema="claro"] #cabecalho-principal.rolou {
+  background-color: rgba(251, 250, 248, 0.96);
+}
+
+#cabecalho-principal.rolou .container-cabecalho-maximo {
+  max-width: 1280px;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  padding: 16px 24px;
+}
+
+/* ── CONTROLES E BOTÃO HAMBÚRGUER MOBILE ── */
+.controles-acoes-celular {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  z-index: 999;
+}
+
+#botao-menu-celular {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--cor-borda);
+  cursor: pointer;
+  position: relative;
+}
+
+html[data-tema="claro"] #botao-menu-celular {
+  background: rgba(13, 8, 7, 0.02);
+}
+
+.traco-menu {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background-color: var(--cor-texto-principal);
+  border-radius: 2px;
+  transition:
+    transform var(--transicao-suave),
+    opacity var(--transicao-suave),
+    background-color var(--transicao-suave);
+  position: absolute;
+}
+
+.traco-menu:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.traco-menu:nth-child(2) {
+  transform: translateY(0);
+}
+
+.traco-menu:nth-child(3) {
+  transform: translateY(5px);
+}
+
+#botao-menu-celular.ativo .traco-menu:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+  background-color: var(--cor-laranja-print);
+}
+
+#botao-menu-celular.ativo .traco-menu:nth-child(2) {
+  opacity: 0;
+}
+
+#botao-menu-celular.ativo .traco-menu:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+  background-color: var(--cor-laranja-print);
+}
+
+/* ── CAIXA / PAINEL DO MENU MOBILE ── */
+/* Posicionamento do menu em relação ao cabeçalho principal */
+/* ── CAIXA / PAINEL DO MENU MOBILE (TAMANHO EXPANDIDO) ── */
+#menu-celular {
+  position: fixed;
+  top: calc(100% + 10px);
+  left: 12px;                  /* Reduzido de 20px para deixar o menu mais LARGO */
+  right: 12px;                 /* Reduzido de 20px para deixar o menu mais LARGO */
+  max-width: 1120px;
+  margin: 0 auto;
+  
+  /* ALTURA EXPANDIDA */
+  height: auto;
+  min-height: 480px;           /* Garante uma altura mínima generosa */
+  max-height: 88vh;            /* Aumentado de 80vh para ocupar quase toda a altura da tela */
+  
+  background-color: rgba(20, 14, 12, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.15));
+  border-radius: 28px;         /* Cantos levemente mais arredondados */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  
+  /* ESPAÇAMENTO INTERNO MAIOR */
+  padding: 32px 24px;          /* Aumentado o padding superior/inferior */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;                   /* Aumentado o espaço entre elementos */
+
+  /* Estado Oculto */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px);
+
+  transition: 
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.35s ease;
+  z-index: 1000;
+}
+
+html[data-tema="claro"] #menu-celular {
+  background-color: rgba(244, 239, 234, 0.98);
+}
+
+/* ── CLASSE ATIVADA PELO JAVASCRIPT ── */
+/* Estado Ativo/Aberto */
+/* CLASSE ATIVADA VIA JAVASCRIPT */
+#menu-celular.aberto {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+/* Links do Menu */
+.lista-menu-celular {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+.link-menu-mobile {
+  display: block;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  position: relative;
+  transition:
+    color 0.35s ease,
+    padding-left 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.link-menu-mobile:hover,
+.link-menu-mobile.ativo {
+  color: var(--cor-texto-principal);
+  background-color: rgba(255, 255, 255, 0.03);
+  padding-left: 24px;
+}
+
+html[data-tema="claro"] .link-menu-mobile:hover,
+html[data-tema="claro"] .link-menu-mobile.ativo {
+  background-color: rgba(13, 8, 7, 0.03);
+}
+
+/* ── ÁREA DO RODAPÉ (RISCA + BOTÃO WHATSAPP) ── */
+.mobile-menu-cta-container {
+  margin-top: auto;
+  /* Garante que o container cole na parte inferior do painel */
+  padding-top: 18px;
+  /* Distância entre a linha divisória e o botão */
+  border-top: 1px solid var(--cor-borda);
+  /* A risca/linha divisória */
+  width: 100%;
+}
+
+.botao-conversar-mobile {
+  background-color: var(--cor-laranja-print);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 100px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--transicao-suave);
+  box-shadow: 0 4px 15px rgba(252, 101, 73, 0.2);
+}
+
+.botao-conversar-mobile:hover {
+  background-color: var(--cor-laranja-hover);
+  transform: translateY(-2px);
+}
+
+/* ── TRAVA DO SCROLL DO BODY QUANDO ABERTO ── */
+/* ── TRAVA DE SCROLL DO BODY ── */
+body.menu-aberto-trava-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none;
+  /* Impede a rolagem por toque no mobile */
+}
+
+
+
+
+
+
+
+
+/* ── REGRA MEDIA QUERY PARA ATIVAR O MENU MOBILE ── */
+@media screen and (max-width: 992px) {
+
+  /* Esconde navegação de computador */
+  .bloco-navegacao-desktop {
+    display: none !important;
+  }
+
+  /* Exibe os botões do celular */
+  .controles-acoes-celular {
+    display: flex !important;
+  }
+
+  /* Garante que o contêiner do header não corte o menu que se expande */
+  .container-cabecalho-maximo {
+    overflow: visible !important;
+  }
+}
+
+
+
+
+/* ── RESPONSIVO: HEADER & NAVEGAÇÃO ── */
+@media (max-width: 1280px) {
+  #cabecalho-principal {
+    padding: 20px 20px;
+  }
+
+  .container-cabecalho-maximo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .bloco-navegacao-desktop {
+    display: none;
+  }
+
+  .controles-acoes-celular {
+    display: flex;
+  }
+
+  #menu-celular {
+    display: flex;
+  }
+
+  #cabecalho-principal {
+    padding: 16px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  #cabecalho-principal {
+    padding: 14px 12px;
+  }
+
+  .container-cabecalho-maximo {
+    padding: 6px 8px 6px 18px;
+  }
+
+  .marca-subtitulo {
+    display: none;
+  }
+}

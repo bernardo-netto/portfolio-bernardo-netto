@@ -1,0 +1,115 @@
+/* ==========================================================================
+           SEÇÃO FAQ (PERGUNTAS FREQUENTES)
+           ========================================================== */
+.faq-secao {
+  padding: 100px 0;
+  background-color: var(--cor-fundo);
+}
+
+.faq-cabecalho {
+  margin-bottom: 40px;
+}
+
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.faq-item {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color var(--transicao-suave);
+}
+
+.faq-item.aberto {
+  border-color: rgba(252, 101, 73, 0.3);
+}
+
+.faq-pergunta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cor-texto-principal);
+  transition: var(--transicao-suave);
+}
+
+.faq-pergunta:hover {
+  color: var(--cor-laranja-print);
+}
+
+.faq-icone {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--cor-texto-suave);
+  transition:
+    transform var(--transicao-suave),
+    color var(--transicao-suave);
+}
+
+.faq-item.aberto .faq-icone {
+  transform: rotate(180deg);
+  color: var(--cor-laranja-print);
+}
+
+/* ── ESTADO PADRÃO DO FAQ (SEMPRE FECHADO) ── */
+.faq-resposta {
+  display: grid;
+  grid-template-rows: 0fr; /* Força altura zero por padrão */
+  overflow: hidden;
+  transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.faq-resposta-inner {
+  min-height: 0;
+  padding: 0 24px; /* Remove o padding inferior enquanto estiver fechado */
+  transition: padding 0.35s ease;
+}
+
+/* ── ESTADO ABERTO (SOMENTE COM A CLASSE .aberto NO FAQ-ITEM) ── */
+.faq-item.aberto .faq-resposta {
+  grid-template-rows: 1fr; /* Expande o conteúdo suavemente */
+}
+
+.faq-item.aberto .faq-resposta-inner {
+  padding: 0 24px 22px; /* Aplica o espaçamento do texto apenas quando aberto */
+}
+
+.faq-resposta-inner p {
+  font-family: var(--fonte-corpo);
+  font-size: 0.88rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.faq-resposta-inner a {
+  color: var(--cor-laranja-print);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq-resposta-inner a:hover {
+  color: var(--cor-laranja-hover);
+}
+
+
+.faq-pergunta-titulo {
+  margin: 0;
+  /* reset do h3 — o botão dentro já controla toda a aparência visual */
+}

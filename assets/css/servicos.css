@@ -1,0 +1,186 @@
+/* ==========================================================================
+   SEÇÃO SERVIÇOS
+   ========================================================================== */
+
+.servicos-secao {
+  padding: 120px 0;
+  background-color: var(--cor-fundo-secundario, #130d0c);
+  position: relative;
+  border-top: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.08));
+}
+
+.servicos-cabecalho {
+  margin-bottom: 56px;
+}
+
+/* Grade de Exibição dos Serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+/* Card Individual de Serviço */
+.servico-card {
+  background: var(--cor-fundo-card, rgba(19, 13, 12, 0.6));
+  border: 1px solid var(--cor-borda, rgba(255, 255, 255, 0.08));
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.servico-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(252, 101, 73, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(252, 101, 73, 0.05);
+}
+
+/* Badge de Serviço "Novo" */
+.servico-badge-novo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: var(--fonte-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(252, 101, 73, 0.12);
+  color: var(--cor-laranja-print, #fc6549);
+  border: 1px solid rgba(252, 101, 73, 0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* Caixas de Ícones e Variações de Cores */
+.servico-icone-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.servico-icone-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.servico-icone-laranja {
+  color: var(--cor-laranja-print, #fc6549);
+  background: rgba(252, 101, 73, 0.08);
+  border-color: rgba(252, 101, 73, 0.2);
+}
+
+.servico-icone-azul {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.servico-icone-ciano {
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.servico-icone-roxo {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+.servico-icone-verde {
+  color: #84cc16;
+  background: rgba(132, 204, 22, 0.08);
+  border-color: rgba(132, 204, 22, 0.2);
+}
+
+/* Tipografia Interna do Card */
+.servico-titulo {
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-texto-principal, #ffffff);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.servico-desc {
+  font-family: var(--fonte-corpo, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--cor-texto-secundario, #d4d4d8); /* Contraste ajustado */
+}
+
+/* Área do Botão CTA (WhatsApp) */
+.servicos-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicos-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25d366;
+  color: #ffffff;
+  font-family: var(--fonte-corpo, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicos-btn-whatsapp:hover {
+  background-color: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLETS)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .servicos-secao {
+    padding: 80px 0;
+  }
+
+  .servicos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .servico-card {
+    padding: 24px 20px;
+  }
+
+  .servicos-btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

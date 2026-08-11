@@ -1,0 +1,191 @@
+/* ── CONFIGURAÇÕES BASE & RESET ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+/* Unificação do elemento HTML */
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-laranja-print) transparent;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-corpo);
+}
+
+/* Scrollbar para Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cor-fundo);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--cor-laranja-print);
+  border-radius: 100px;
+  border: 2px solid var(--cor-fundo);
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cor-laranja-hover);
+}
+
+
+
+
+
+
+
+body {
+  background-color: var(--cor-fundo);
+  transition: background-color var(--transicao-suave), color var(--transicao-suave);
+}
+
+/* ── ACESSIBILIDADE: FOCO VISÍVEL ── */
+a,
+button,
+input,
+textarea,
+[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cor-laranja-print);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.card-proj:focus-visible,
+.skill-card:focus-visible {
+  outline: 2px solid var(--cor-laranja-print);
+  outline-offset: 0;
+  border-color: var(--cor-laranja-print);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── UTILITÁRIOS GLOBAIS ── */
+.container-global {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.divisor-secao {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* Otimizado: Transições aplicadas diretamente nas propriedades necessárias */
+header,
+.container-cabecalho-maximo,
+.caixa-contador-sobre,
+.link-contato,
+.botao-voltar-topo {
+  transition: 
+    background-color var(--transicao-suave),
+    border-color var(--transicao-suave),
+    color var(--transicao-suave),
+    box-shadow var(--transicao-suave),
+    transform var(--transicao-suave);
+}
+
+/* Links e Botões com transição otimizada para GPU */
+a,
+button {
+  transition: color var(--transicao-suave), background-color var(--transicao-suave), border-color var(--transicao-suave), transform var(--transicao-suave);
+}
+
+/* Revelação Suave (Scroll Reveal) */
+.revelar-elemento {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.revelar-elemento.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atraso-1 {
+  transition-delay: 0.15s;
+}
+
+.atraso-2 {
+  transition-delay: 0.30s;
+}
+
+/* ── PREFERÊNCIA DE MOVIMENTO REDUZIDO ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── ÁREA DE TOQUE MÍNIMA (MOBILE/TOUCH) ── */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  .link-menu-mobile,
+  #botao-menu-celular,
+  .botao-voltar-topo {
+    min-height: 44px;
+  }
+
+  #botao-menu-celular,
+  .botao-alternar-tema,
+  .btn-fchr {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+
+/* ── SKIP LINK (ACESSIVILIDADE) ── */
+.skip-link {
+  position: absolute;
+  top: -100px; /* Mantém oculto fora da tela */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--cor-laranja-print);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: var(--sombra-premium);
+  z-index: 9999;
+  transition: top 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Revela o link no topo apenas quando focado via teclado/clique */
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 2px solid var(--cor-texto-principal);
+  outline-offset: -4px;
+}
