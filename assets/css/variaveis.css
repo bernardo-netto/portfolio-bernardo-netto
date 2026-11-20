@@ -1,85 +1,54 @@
-/* ==========================================================================
-DESIGN TOKENS & SISTEMA DE TEMAS (WCAG AA COMPLIANT)
-Arquitetura: Tokens Primitivos -> Tokens Semânticos -> Escalas
-========================================================================== */
-
+/* ── DESIGN TOKENS (SISTEMA DE DESIGN) ── /
 :root {
-/* 1. PALETA DE MARCA E ACENTOS */
---cor-primaria: #fc6549;
---cor-primaria-hover: #e84b2a;
---cor-primaria-texto: #fc6549;
---cor-primaria-suave: rgba(252, 101, 73, 0.12);
---cor-primaria-borda: rgba(252, 101, 73, 0.3);
-
-/* 2. SUPERFÍCIES E FUNDOS (TEMA ESCURO - PADRÃO) */
+/ Design Tokens de Cores - Tema Escuro */
 --cor-fundo: #0d0807;
 --cor-fundo-secundario: #0b0706;
---cor-card: rgba(23, 15, 13, 0.55);
---cor-card-secundario: rgba(30, 20, 18, 0.75);
+--cor-card: rgba(23, 15, 13, 0.4);
+--cor-card-secundario: rgba(30, 20, 18, 0.6);
 --cor-fundo-card: var(--cor-card);
-
-/* 3. BORDAS E DIVISORES */
---cor-borda: rgba(255, 255, 255, 0.08);
---cor-borda-foco: rgba(255, 255, 255, 0.18);
-
-/* 4. TIPOGRAFIA E HIERARQUIA DE TEXTO */
+--cor-borda: rgba(255, 255, 255, 0.05);
+--cor-borda-foco: rgba(255, 255, 255, 0.12);
+--cor-laranja-print: #fc6549;
+--cor-laranja-hover: #e84b2a;
 --cor-texto-principal: #ffffff;
---cor-texto-secundario: #b8afad;
---cor-texto-suave: #948a87;
+--cor-texto-secundario: #a39997;
+--cor-texto-suave: #8a807d;
 
-/* 5. TOKENS DE COMPONENTES ESPECÍFICOS */
+/* Variaveis Exclusivas do Footer */
 --fundo-footer: #0b0706;
---borda-footer: rgba(255, 255, 255, 0.06);
---fundo-rede-social: rgba(255, 255, 255, 0.04);
---borda-rede-social: rgba(255, 255, 255, 0.1);
---cor-whatsapp: #16a34a;
---cor-whatsapp-hover: #15803d;
+--borda-footer: rgba(255, 255, 255, 0.05);
+--fundo-rede-social: rgba(255, 255, 255, 0.03);
+--borda-rede-social: rgba(255, 255, 255, 0.08);
 
-/* 6. FAMÍLIAS TIPOGRÁFICAS */
---fonte-titulo: "Syne", system-ui, -apple-system, sans-serif;
---fonte-serifa: "Playfair Display", Georgia, serif;
---fonte-mono: "Share Tech Mono", ui-monospace, SFMono-Regular, monospace;
---fonte-corpo: "Inter", system-ui, -apple-system, sans-serif;
+/* Tipografia Editorial */
+--fonte-titulo: "Syne", sans-serif;
+--fonte-serifa: "Playfair Display", serif;
+--fonte-mono: "Share Tech Mono", monospace;
+--fonte-corpo: "Inter", sans-serif;
 
-/* 7. ESPAÇAMENTOS, RAIOS E ELEVAÇÃO */
---raio-card: 1rem;
---raio-icone: 0.75rem;
---raio-pill: 9999px;
---sombra-card: 0 12px 30px rgba(0, 0, 0, 0.35);
---sombra-premium: 0 15px 35px rgba(0, 0, 0, 0.45);
-
-/* 8. MOVIMENTO E TRANSIÇÕES */
---transicao-suave: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
---transicao-tema: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+/* Animações e Transições */
+--transicao-suave: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+--transicao-tema: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+--sombra-premium: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* ==========================================================================
-TEMA CLARO (LIGHT MODE)
-Ajustado para legibilidade editorial e contraste WCAG AA (>= 4.5:1)
-========================================================================== */
-
+/* ── MODO CLARO (Light Theme) ── */
 html[data-tema="claro"] {
---cor-primaria-texto: #c93b1e;
---cor-primaria-suave: rgba(201, 59, 30, 0.09);
---cor-primaria-borda: rgba(201, 59, 30, 0.25);
-
 --cor-fundo: #fbfaf8;
 --cor-fundo-secundario: #f4efea;
---cor-card: #ffffff;
---cor-card-secundario: #f7f3ef;
+--cor-card: rgba(13, 8, 7, 0.04);
+--cor-card-secundario: rgba(13, 8, 7, 0.08);
 --cor-fundo-card: var(--cor-card);
-
---cor-borda: rgba(19, 13, 12, 0.09);
---cor-borda-foco: rgba(19, 13, 12, 0.2);
-
+--cor-borda: rgba(13, 8, 7, 0.08);
+--cor-borda-foco: rgba(13, 8, 7, 0.16);
 --cor-texto-principal: #130d0c;
---cor-texto-secundario: #4a4442;
---cor-texto-suave: #5c5553;
+--cor-texto-secundario: #5c5553;
+--cor-texto-suave: #655c5a;
 
 --fundo-footer: #f4efea;
---borda-footer: rgba(19, 13, 12, 0.08);
---fundo-rede-social: rgba(19, 13, 12, 0.04);
---borda-rede-social: rgba(19, 13, 12, 0.1);
---sombra-card: 0 8px 24px rgba(19, 13, 12, 0.05);
---sombra-premium: 0 12px 30px rgba(19, 13, 12, 0.08);
+--borda-footer: rgba(13, 8, 7, 0.08);
+--fundo-rede-social: rgba(13, 8, 7, 0.04);
+--borda-rede-social: rgba(13, 8, 7, 0.08);
+
+--sombra-premium: 0 10px 30px rgba(13, 8, 7, 0.04);
 }
