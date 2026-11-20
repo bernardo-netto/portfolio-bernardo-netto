@@ -1,54 +1,52 @@
-/* ── DESIGN TOKENS (SISTEMA DE DESIGN) ── /
+/* ── DESIGN TOKENS (SISTEMA DE DESIGN) ── */
 :root {
-/ Design Tokens de Cores - Tema Escuro */
---cor-fundo: #0d0807;
---cor-fundo-secundario: #0b0706;
---cor-card: rgba(23, 15, 13, 0.4);
---cor-card-secundario: rgba(30, 20, 18, 0.6);
---cor-fundo-card: var(--cor-card);
---cor-borda: rgba(255, 255, 255, 0.05);
---cor-borda-foco: rgba(255, 255, 255, 0.12);
---cor-laranja-print: #fc6549;
---cor-laranja-hover: #e84b2a;
---cor-texto-principal: #ffffff;
---cor-texto-secundario: #a39997;
---cor-texto-suave: #8a807d;
+  /* Design Tokens de Cores - Tema Escuro */
+  --cor-fundo: #0d0807;
+  --cor-fundo-secundario: #0b0706;
+  --cor-card: rgba(23, 15, 13, 0.4);
+  --cor-card-secundario: rgba(30, 20, 18, 0.6);
+  --cor-borda: rgba(255, 255, 255, 0.05);
+  --cor-borda-foco: rgba(255, 255, 255, 0.12);
+  --cor-laranja-print: #fc6549;
+  --cor-laranja-hover: #e84b2a;
+  --cor-texto-principal: #ffffff;
+  --cor-texto-secundario: #a39997;
+  --cor-texto-suave: #8a807d;
 
-/* Variaveis Exclusivas do Footer */
---fundo-footer: #0b0706;
---borda-footer: rgba(255, 255, 255, 0.05);
---fundo-rede-social: rgba(255, 255, 255, 0.03);
---borda-rede-social: rgba(255, 255, 255, 0.08);
+  /* Variaveis Exclusivas do Footer */
+  --fundo-footer: #0b0706;
+  --borda-footer: rgba(255, 255, 255, 0.05);
+  --fundo-rede-social: rgba(255, 255, 255, 0.03);
+  --borda-rede-social: rgba(255, 255, 255, 0.08);
 
-/* Tipografia Editorial */
---fonte-titulo: "Syne", sans-serif;
---fonte-serifa: "Playfair Display", serif;
---fonte-mono: "Share Tech Mono", monospace;
---fonte-corpo: "Inter", sans-serif;
+  /* Tipografia Editorial */
+  --fonte-titulo: "Syne", sans-serif;
+  --fonte-serifa: "Playfair Display", serif;
+  --fonte-mono: "Share Tech Mono", monospace;
+  --fonte-corpo: "Inter", sans-serif;
 
-/* Animações e Transições */
---transicao-suave: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
---transicao-tema: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
---sombra-premium: 0 15px 35px rgba(0, 0, 0, 0.4);
+  /* Animações e Transições */
+  --transicao-suave: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --transicao-tema: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  --sombra-premium: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* ── MODO CLARO (Light Theme) ── */
 html[data-tema="claro"] {
---cor-fundo: #fbfaf8;
---cor-fundo-secundario: #f4efea;
---cor-card: rgba(13, 8, 7, 0.04);
---cor-card-secundario: rgba(13, 8, 7, 0.08);
---cor-fundo-card: var(--cor-card);
---cor-borda: rgba(13, 8, 7, 0.08);
---cor-borda-foco: rgba(13, 8, 7, 0.16);
---cor-texto-principal: #130d0c;
---cor-texto-secundario: #5c5553;
---cor-texto-suave: #655c5a;
+  --cor-fundo: #fbfaf8;
+  --cor-fundo-secundario: #f4efea;
+  --cor-card: rgba(13, 8, 7, 0.04);
+  --cor-card-secundario: rgba(13, 8, 7, 0.08);
+  --cor-borda: rgba(13, 8, 7, 0.08);
+  --cor-borda-foco: rgba(13, 8, 7, 0.16);
+  --cor-texto-principal: #130d0c;
+  --cor-texto-secundario: #5c5553;
+  --cor-texto-suave: #655c5a;
 
---fundo-footer: #f4efea;
---borda-footer: rgba(13, 8, 7, 0.08);
---fundo-rede-social: rgba(13, 8, 7, 0.04);
---borda-rede-social: rgba(13, 8, 7, 0.08);
+  --fundo-footer: #f4efea;
+  --borda-footer: rgba(13, 8, 7, 0.08);
+  --fundo-rede-social: rgba(13, 8, 7, 0.04);
+  --borda-rede-social: rgba(13, 8, 7, 0.08);
 
---sombra-premium: 0 10px 30px rgba(13, 8, 7, 0.04);
+  --sombra-premium: 0 10px 30px rgba(13, 8, 7, 0.04);
 }
